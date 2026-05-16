@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions and Voting</title>
+</head>
+
+<body>
+    <h1>Questions and Voting</h1>
+
+    <form id="questionForm">
+        <label for="questionInput">Your question:</label>
+        <br><br>
+
+        <textarea id="questionInput" rows="4" cols="50" placeholder="Write your question here" required></textarea>
+
+        <br><br>
+
+        <button type="submit">Add question</button>
+    </form>
+
+    <hr>
+
+    <h2>Questions</h2>
+
+    <ul id="questionsList"></ul>
+
+    <script>
+        const form = document.getElementById("questionForm");
+        const input = document.getElementById("questionInput");
+        const questionsList = document.getElementById("questionsList");
+
+        const questions = [];
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const text = input.value.trim();
+
+            if (text === "") {
+                return;
+            }
+
+            questions.push({
+                text: text,
+                votes: 0
+            });
+
+            input.value = "";
+            renderQuestions();
+        });
+
+        function renderQuestions() {
+            questionsList.innerHTML = "";
+
+            questions.forEach(function (question, index) {
+                const item = document.createElement("li");
+
+                item.innerHTML = `
+          <strong>${question.text}</strong>
+          <br>
+          Votes: ${question.votes}
+          <br>
+          <button type="button" onclick="voteForQuestion(${index})">
+            Vote for this question
+          </button>
+          <br><br>
+        `;
+
+                questionsList.appendChild(item);
+            });
+        }
+
+        function voteForQuestion(index) {
+            questions[index].votes++;
+            renderQuestions();
+        }
+    </script>
+</body>
+
+</html>
