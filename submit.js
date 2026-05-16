@@ -7,5 +7,5 @@ document.querySelector('#questionForm').addEventListener('click', () => {
 
 function submit() {
   const questionInput = document.querySelector('#questionInput').value
-  postQuestion(server, port, questionInput)
+  postQuestion(server, questionInput)
 }

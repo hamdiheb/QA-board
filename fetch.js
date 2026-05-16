@@ -1,14 +1,11 @@
-const server = 'localhost'
-const port = 3000
-
-export default async function fetchQuestions(server, port) {
-  const req = await fetch(`${server}:${port}\questions`)
+export default async function fetchQuestions(server) {
+  const req = await fetch(`${server}/questions`)
   const res = await req.json()
   return res
 }
 
-export async function postQuestion(server, port, question) {
-  const req = await fetch(`${server}:${port}\question`, {
+export async function postQuestion(server, question) {
+  const req = await fetch(`${server}/question`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
