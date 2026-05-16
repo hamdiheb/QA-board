@@ -1,13 +1,11 @@
-import postQuestion from 'fetch'
-const server = 'localhost'
-const port = 3000
+import postQuestion from './fetch'
 
-function handleEvent(event) {
-  event.preventdefault()
+document.querySelector('#questionForm').addEventListener('click', () => {
   submit()
-}
+  event.preventDefault()
+})
 
-export default function submit() {
+function submit() {
   const questionInput = document.querySelector('#questionInput').value
   postQuestion(server, port, questionInput)
 }

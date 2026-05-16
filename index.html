@@ -1,40 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Questions and Voting</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Questions and Voting</h1>
 
     <form id="questionForm">
-        <label for="questionInput">Your question:</label>
-        <br><br>
+      <label for="questionInput">Your question:</label>
+      <br /><br />
 
-        <textarea id="questionInput" name="question" rows="4" cols="50" placeholder="Write your question here"
-            required></textarea>
+      <textarea
+        id="questionInput"
+        name="question"
+        rows="4"
+        cols="50"
+        placeholder="Write your question here"
+        required
+      ></textarea>
 
-        <br><br>
+      <br /><br />
 
-        <button type="submit">Add question</button>
+      <button type="button">Add question</button>
     </form>
 
-    <hr>
+    <hr />
 
     <h2>Questions</h2>
 
     <ul id="questionsList">
-        <li>
-            <strong>Example question?</strong>
-            <br>
-            Votes: 0
-            <br>
-            <button type="button">Vote for this question</button>
-        </li>
+      <li>
+        <strong>Example question?</strong>
+        <br />
+        Votes: 0
+        <br />
+        <button type="button">Vote for this question</button>
+      </li>
     </ul>
-</body>
-
+    <script defer type="module" src="submit.js"></script>
+    <script defer type="module" src="main.js"></script>
+  </body>
 </html>
