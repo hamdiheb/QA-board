@@ -14,6 +14,7 @@ function render(questions) {
     li.setAttribute('id', element.id)
     li.innerText = element.question
     vote.innerText = element.vote
+    li.append(vote)
     ul.append(li)
   })
   div.append(ul)
