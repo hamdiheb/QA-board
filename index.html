@@ -14,7 +14,8 @@
         <label for="questionInput">Your question:</label>
         <br><br>
 
-        <textarea id="questionInput" rows="4" cols="50" placeholder="Write your question here" required></textarea>
+        <textarea id="questionInput" name="question" rows="4" cols="50" placeholder="Write your question here"
+            required></textarea>
 
         <br><br>
 
@@ -25,59 +26,15 @@
 
     <h2>Questions</h2>
 
-    <ul id="questionsList"></ul>
-
-    <script>
-        const form = document.getElementById("questionForm");
-        const input = document.getElementById("questionInput");
-        const questionsList = document.getElementById("questionsList");
-
-        const questions = [];
-
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            const text = input.value.trim();
-
-            if (text === "") {
-                return;
-            }
-
-            questions.push({
-                text: text,
-                votes: 0
-            });
-
-            input.value = "";
-            renderQuestions();
-        });
-
-        function renderQuestions() {
-            questionsList.innerHTML = "";
-
-            questions.forEach(function (question, index) {
-                const item = document.createElement("li");
-
-                item.innerHTML = `
-          <strong>${question.text}</strong>
-          <br>
-          Votes: ${question.votes}
-          <br>
-          <button type="button" onclick="voteForQuestion(${index})">
-            Vote for this question
-          </button>
-          <br><br>
-        `;
-
-                questionsList.appendChild(item);
-            });
-        }
-
-        function voteForQuestion(index) {
-            questions[index].votes++;
-            renderQuestions();
-        }
-    </script>
+    <ul id="questionsList">
+        <li>
+            <strong>Example question?</strong>
+            <br>
+            Votes: 0
+            <br>
+            <button type="button">Vote for this question</button>
+        </li>
+    </ul>
 </body>
 
 </html>
