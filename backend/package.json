@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "name": "qaboard-server",
+  "version": "0.0.1",
+  "description": "Simple Q&A backend example based on Express",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}
